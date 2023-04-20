@@ -128,3 +128,9 @@ test.c:250:7: error: assignment to ‘TreeNode *’ from ‘int’ makes pointer
 cc1: all warnings being treated as errors
 Compilation failed
 737e547
+Thu 20 Apr 2023 05:39:25 PM UTC: 
+ treemap.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+ tests:  11|6
+total_score: 15/70
+383cdf4
