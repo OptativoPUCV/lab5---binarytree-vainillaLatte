@@ -101,7 +101,6 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     }
 
     if (node->left == NULL && node->right == NULL) {
-        // Caso 1: el nodo no tiene hijos
         if (node == tree->root) {
             tree->root = NULL;
         } else if (node == node->parent->left) {
@@ -111,7 +110,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         }
         free(node);
     } else if (node->left == NULL || node->right == NULL) {
-        // Caso 2: el nodo tiene un hijo
+       
         TreeNode * child = node->left ? node->left : node->right;
         if (node == tree->root) {
             tree->root = child;
@@ -125,7 +124,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         }
         free(node);
     } else {
-        // Caso 3: el nodo tiene dos hijos
+        
         TreeNode * successor = minimum(node->right);
         node->pair = successor->pair;
         removeNode(tree, successor);
@@ -174,7 +173,19 @@ Pair * upperBound(TreeMap * tree, void* key) {
 }
 
 Pair * firstTreeMap(TreeMap * tree) {
-    return NULL;
+    if (tree == NULL || tree->root == NULL) {
+        return NULL;
+    }
+
+    // Buscar el nodo con la clave mínima (el más a la izquierda)
+    TreeNode* node = tree->root;
+    while (node->left != NULL) {
+        node = node->left;
+    }
+
+    // Devolver el par clave-valor del nodo encontrado
+    tree->current = node;
+    return node->pair;
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
