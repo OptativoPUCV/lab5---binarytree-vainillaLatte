@@ -83,18 +83,6 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
     }
   }
   }
-  /*tree->current = tree->root;
-  TreeNode *new = createTreeNode(key, value);
-  if(tree->current != NULL)
-  {
-    tree->current = new;
-    return;
-  }
-  if(searchTreeMap(tree, key) != NULL) return;
-  */
- 
-  
-  //return;
   
 }
 
